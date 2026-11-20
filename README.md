@@ -12,11 +12,18 @@ or Devices).
 
 ## Status
 
-**Empty template.** This crate is a scaffold: no Kimi graph logic, no WIT
-bindings and no Component Model exports exist here yet, and the Runtime has
-no Kimi implementation of its own either. It is pinned into Magnetar as a
-placeholder so the work has a home; it is not yet scheduled against an
-OpenSpec change of its own.
+The initial Rust library reads the Kimi K2 checkpoint's latent attention
+dimensions and dense/MoE layer pattern and implements a portable single-group
+expert-routing reference for supplied logits. Tests check a pinned published
+configuration and analytical routing cases. This does not load checkpoint
+weights, build a Magnetar graph, implement WIT exports or execute inference.
+Kimi K2 is not yet runnable in Magnetar.
+
+The Kimi-K2-Instruct checkpoint uses block-scaled FP8 weights and is distributed
+under a Modified MIT License; model users must review its terms separately from
+this component's license. Correct FP8 ingestion is tracked in
+[Magnetar #221](https://github.com/astorise/Magnetar/issues/221), and the
+missing biased routing semantics in [#216](https://github.com/astorise/Magnetar/issues/216).
 
 ## What this family needs
 
