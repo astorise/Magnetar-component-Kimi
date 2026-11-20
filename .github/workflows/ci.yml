@@ -21,4 +21,4 @@ jobs:
       - name: Install Rust toolchain
         run: rustup toolchain install 1.100.0 --profile minimal
       - name: Check pinned Kimi K2 configuration and router
-        run: cargo +1.100.0 test --locked --test kimi_k2_integration
+        run: cargo +1.100.0 test --locked --test kimi_k2_integration --test pytorch_router_integration
